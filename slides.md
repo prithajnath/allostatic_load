@@ -726,6 +726,7 @@ clicks: 7
     <div v-show="$clicks >= 2" class="text-slate-200">
       <div>AL<sub>z</sub> → BUN &nbsp;<span class="text-amber-300 font-bold">p=0.002</span></div>
       <div class="text-amber-400 text-xs mt-1">⭐ survives BH correction</div>
+      <div class="text-slate-500 text-xs mt-1 italic">wrong direction — likely confounder</div>
     </div>
   </div>
   <div :class="$clicks < 3 ? 'opacity-25 border-slate-700' : 'border-orange-600 bg-orange-950 bg-opacity-30 opacity-100'" class="border rounded-lg p-3 transition-all duration-500">
@@ -733,6 +734,7 @@ clicks: 7
     <div v-show="$clicks >= 3" class="text-slate-200 space-y-1">
       <div>AL<sub>z</sub> → Albumin &nbsp;<span class="text-orange-300 font-bold">p=0.017</span></div>
       <div>AL<sub>z</sub> → GGT<sub>z</sub> &nbsp;<span class="text-orange-300 font-bold">p=0.026</span></div>
+      <div class="text-slate-500 text-xs mt-1 italic">did not survive correction</div>
     </div>
   </div>
   <div :class="$clicks < 4 ? 'opacity-25 border-slate-700' : 'opacity-80 border-slate-500'" class="border rounded-lg p-3 transition-all duration-500">
@@ -951,17 +953,17 @@ The HMM-derived shape measures — **AL_dwell** (how long a person stays in a dy
 
 # Inconclusive Clinical Findings
 
-The clinical panel produced signals in renal and hepatic systems. None are confirmatory — each fails one of the two admissibility conditions required for construct-valid evidence: correct direction, and survival of multiple-comparison correction.
+Renal and hepatic associations are present in the data but uninformative for construct validation — each fails at least one admissibility condition (correct direction + surviving correction).
 
 <v-click>
 
-**BUN — survived correction, wrong direction.** AL_z → BUN (β=−0.50, p=0.002) is the only clinical association to survive Benjamini–Hochberg correction. But the sign is opposite to prediction: higher allostatic load is associated with *lower* BUN. An autonomic-axis measure should not recover this marker at all — BUN is governed primarily by dietary protein intake, hepatic urea synthesis, and hydration status, inputs orthogonal to autonomic regulation. Low protein intake, chronic alcohol use, and overhydration all depress BUN, producing exactly this negative sign. Because the protocol recorded neither dietary intake, alcohol use, nor hydration at the time of the blood draw, we cannot distinguish a genuine inverse relationship from confounding by these non-autonomic factors. We treat the BUN association as robust in the data but uninformative for construct validation.
+**BUN — survived correction, wrong direction.** AL_z → BUN (β=−0.50, p=0.002) is the only association to survive BH correction, but higher AL_z predicts *lower* BUN. BUN is governed by dietary protein intake, hydration, and alcohol use — none recorded at the blood draw. Almost certainly a confounder.
 
 </v-click>
 
 <v-click>
 
-**GGT and Albumin — raw signals, did not survive correction.** AL_z showed raw associations with GGT_z (p=0.026) and albumin (p=0.017), both consistent with chronic systemic inflammation suppressing hepatic synthetic function. Neither survived multiple-testing correction. GGT carries an additional interpretive problem: it can be elevated gradually by chronic liver disease but also acutely — within hours — by binge alcohol use. A single cross-sectional blood draw cannot separate the chronic pathway relevant to allostatic load from the acute one.
+**GGT and Albumin — raw signal, did not survive correction.** AL_z showed raw associations with albumin (p=0.017) and GGT_z (p=0.026). Neither survived correction. GGT is timescale-ambiguous — binge alcohol elevates it within hours, so a single draw cannot separate the chronic pathway from the acute one.
 
 </v-click>
 
