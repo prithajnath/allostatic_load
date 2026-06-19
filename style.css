@@ -1,0 +1,26 @@
+/* Palette drawn from bg.jpg: warm red-orange → deep orange → indigo-purple */
+
+/* All h1 headings — !important to override seriph theme defaults */
+.slidev-layout h1 {
+  background-image: linear-gradient(135deg, #E8722A 0%, #C83A10 45%, #4A2E82 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.4));
+}
+
+/* Blockquotes */
+.slidev-layout blockquote {
+  border-left: 3px solid #C83A10;
+  color: rgba(232, 114, 42, 0.9);
+  background-color: rgba(200, 58, 16, 0.08);
+  padding: 0.5em 1em;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Inline code */
+.slidev-layout :not(pre) > code {
+  color: #E8722A;
+  background-color: rgba(200, 58, 16, 0.15);
+}
