@@ -1,5 +1,49 @@
 /* Palette drawn from bg.jpg: warm red-orange → deep orange → indigo-purple */
 
+/* Flowing connector animations */
+@keyframes flow-down {
+  from { background-position: 0 0; }
+  to   { background-position: 0 14px; }
+}
+
+.connector-yellow {
+  width: 2px; height: 18px; margin: 0 auto;
+  background: repeating-linear-gradient(to bottom, #fde68a 0, #fde68a 5px, transparent 5px, transparent 10px);
+  animation: flow-down 0.4s linear infinite;
+}
+
+.connector-blue {
+  width: 2px; height: 14px; margin: 0 auto;
+  background: repeating-linear-gradient(to bottom, #60a5fa 0, #60a5fa 5px, transparent 5px, transparent 10px);
+  animation: flow-down 0.4s linear infinite;
+}
+
+.connector-orange {
+  width: 2px; height: 14px; margin: 0 auto;
+  background: repeating-linear-gradient(to bottom, #fb923c 0, #fb923c 5px, transparent 5px, transparent 10px);
+  animation: flow-down 0.4s linear infinite;
+}
+
+/* Glow pulse effects */
+@keyframes pulse-glow-yellow {
+  0%, 100% { box-shadow: 0 0 3px 1px rgba(253, 230, 138, 0.3); }
+  50%       { box-shadow: 0 0 10px 4px rgba(253, 230, 138, 0.7); }
+}
+
+@keyframes pulse-glow-blue {
+  0%, 100% { box-shadow: 0 0 3px 1px rgba(96, 165, 250, 0.3); }
+  50%       { box-shadow: 0 0 10px 4px rgba(96, 165, 250, 0.7); }
+}
+
+@keyframes pulse-glow-orange {
+  0%, 100% { box-shadow: 0 0 3px 1px rgba(251, 146, 60, 0.3); }
+  50%       { box-shadow: 0 0 10px 4px rgba(251, 146, 60, 0.7); }
+}
+
+.glow-yellow { animation: pulse-glow-yellow 1.2s ease-in-out infinite; }
+.glow-blue   { animation: pulse-glow-blue 1.2s ease-in-out infinite; }
+.glow-orange { animation: pulse-glow-orange 1.2s ease-in-out infinite; }
+
 /* All h1 headings — !important to override seriph theme defaults */
 .slidev-layout h1 {
   background-image: linear-gradient(135deg, #E8722A 0%, #C83A10 45%, #4A2E82 100%) !important;

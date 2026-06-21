@@ -115,136 +115,75 @@ Shifted focus from the stressor itself to the individual's *cognitive interpreta
 </v-click>
 
 ---
-clicks: 5
+clicks: 12
 ---
 
 # The Stress Response: Two Axes
 
 <div class="flex flex-col items-center mt-1" style="font-size: 0.72em; line-height: 1.4">
-  <div :class="$clicks >= 1 ? 'border-yellow-300 bg-yellow-900 text-yellow-100' : 'border-slate-700 bg-slate-800 text-slate-500'" class="border-2 rounded px-8 py-2 font-bold tracking-widest transition-all duration-500">STRESSOR</div>
-  <div :class="$clicks >= 2 ? 'text-slate-400' : 'text-slate-800'" class="text-xl leading-none my-1 transition-all duration-500">↓</div>
-  <div :class="$clicks >= 2 ? 'border-yellow-400 bg-yellow-950 text-yellow-100' : 'border-slate-700 bg-slate-900 text-slate-600'" class="border-2 rounded px-8 py-2 transition-all duration-500">
+  <div :class="(($clicks >= 1 && $clicks < 7) || ($clicks >= 9 && $clicks < 10)) ? 'border-yellow-300 bg-yellow-900 text-yellow-100 glow-yellow' : 'border-slate-700 bg-slate-800 text-slate-500'" class="border-2 rounded px-8 py-2 font-bold tracking-widest transition-all duration-500">STRESSOR</div>
+  <div style="height: 18px; margin: 2px 0" class="relative flex justify-center items-center">
+    <div v-show="($clicks >= 2 && $clicks < 7) || ($clicks >= 9 && $clicks < 10)" class="connector-yellow absolute"></div>
+    <div v-show="!(($clicks >= 2 && $clicks < 7) || ($clicks >= 9 && $clicks < 10))" :class="$clicks >= 2 ? 'text-slate-500' : 'text-slate-800'" class="leading-none text-lg">↓</div>
+  </div>
+  <div :class="(($clicks >= 2 && $clicks < 8) || ($clicks >= 9 && $clicks < 10)) ? 'border-yellow-400 bg-yellow-950 text-yellow-100 glow-yellow' : 'border-slate-700 bg-slate-900 text-slate-600'" class="border-2 rounded px-8 py-2 transition-all duration-500">
     <span class="font-bold tracking-wide">Cognitive Appraisal</span>
     <span class="text-xs opacity-60 ml-3">Lazarus &amp; Folkman</span>
   </div>
-  <div :class="$clicks >= 3 ? 'text-slate-400' : 'text-slate-800'" class="text-xl leading-none my-1 transition-all duration-500">↓</div>
+  <div style="height: 18px; margin: 2px 0" class="relative flex justify-center items-center">
+    <div v-show="($clicks >= 3 && $clicks < 8) || ($clicks >= 9 && $clicks < 10)" class="connector-yellow absolute"></div>
+    <div v-show="!(($clicks >= 3 && $clicks < 8) || ($clicks >= 9 && $clicks < 10))" :class="$clicks >= 3 ? 'text-slate-500' : 'text-slate-800'" class="leading-none text-lg">↓</div>
+  </div>
   <div class="flex gap-20">
-    <div class="flex flex-col items-center gap-1">
-      <div :class="$clicks >= 3 ? 'text-blue-300' : 'text-slate-700'" class="font-bold text-xs tracking-widest mb-1 transition-all duration-300">SAM AXIS — fast</div>
-      <div :class="$clicks >= 3 ? 'border-blue-600 text-slate-200' : 'border-slate-700 text-slate-700'" class="border rounded px-4 py-1 bg-slate-900 text-xs text-center transition-all duration-300">Hypothalamus</div>
-      <div :class="$clicks >= 3 ? 'text-slate-500' : 'text-slate-800'" class="text-center transition-all duration-300">↓</div>
-      <div :class="$clicks >= 3 ? 'border-blue-600 text-slate-200' : 'border-slate-700 text-slate-700'" class="border rounded px-4 py-1 bg-slate-900 text-xs text-center transition-all duration-300">Sympathetic NS</div>
-      <div :class="$clicks >= 3 ? 'text-slate-500' : 'text-slate-800'" class="text-center transition-all duration-300">↓</div>
-      <div :class="$clicks >= 3 ? 'border-blue-600 text-slate-200' : 'border-slate-700 text-slate-700'" class="border rounded px-4 py-1 bg-slate-900 text-xs text-center transition-all duration-300">Adrenal Medulla</div>
-      <div :class="$clicks >= 3 ? 'text-slate-500' : 'text-slate-800'" class="text-center transition-all duration-300">↓</div>
-      <div :class="$clicks >= 4 ? 'border-blue-400 bg-blue-950 text-blue-200' : 'border-slate-700 bg-slate-900 text-slate-700'" class="border rounded px-4 py-1 text-xs text-center font-bold transition-all duration-500">Epinephrine / Norepinephrine</div>
-      <div v-show="$clicks >= 4" class="text-blue-400 text-xs text-center mt-1">↑ HR · ↑ BP · mobilize energy<br/><span class="font-bold">resolves in minutes</span></div>
+    <div class="flex flex-col items-center">
+      <div :class="(($clicks >= 3 && $clicks < 8) || $clicks >= 9) ? 'text-blue-300' : 'text-slate-700'" class="font-bold text-xs tracking-widest mb-1 transition-all duration-300">SAM AXIS — fast</div>
+      <div :class="(($clicks >= 3 && $clicks < 8) || $clicks >= 9) ? 'border-blue-600 text-slate-200 glow-blue' : 'border-slate-700 text-slate-700'" class="border rounded px-4 py-1 bg-slate-900 text-xs text-center transition-all duration-300">Hypothalamus</div>
+      <div style="height: 14px; margin: 1px 0" class="relative flex justify-center items-center">
+        <div v-show="($clicks >= 3 && $clicks < 8) || $clicks >= 9" class="connector-blue absolute"></div>
+        <div v-show="!(($clicks >= 3 && $clicks < 8) || $clicks >= 9)" :class="$clicks >= 3 ? 'text-slate-500' : 'text-slate-800'" class="leading-none text-xs">↓</div>
+      </div>
+      <div :class="(($clicks >= 3 && $clicks < 8) || $clicks >= 9) ? 'border-blue-600 text-slate-200 glow-blue' : 'border-slate-700 text-slate-700'" class="border rounded px-4 py-1 bg-slate-900 text-xs text-center transition-all duration-300">Sympathetic NS</div>
+      <div style="height: 14px; margin: 1px 0" class="relative flex justify-center items-center">
+        <div v-show="($clicks >= 3 && $clicks < 8) || $clicks >= 9" class="connector-blue absolute"></div>
+        <div v-show="!(($clicks >= 3 && $clicks < 8) || $clicks >= 9)" :class="$clicks >= 3 ? 'text-slate-500' : 'text-slate-800'" class="leading-none text-xs">↓</div>
+      </div>
+      <div :class="(($clicks >= 3 && $clicks < 8) || $clicks >= 9) ? 'border-blue-600 text-slate-200 glow-blue' : 'border-slate-700 text-slate-700'" class="border rounded px-4 py-1 bg-slate-900 text-xs text-center transition-all duration-300">Adrenal Medulla</div>
+      <div style="height: 14px; margin: 1px 0" class="relative flex justify-center items-center">
+        <div v-show="($clicks >= 4 && $clicks < 8) || $clicks >= 9" class="connector-blue absolute"></div>
+        <div v-show="!(($clicks >= 4 && $clicks < 8) || $clicks >= 9)" :class="$clicks >= 4 ? 'text-slate-500' : 'text-slate-800'" class="leading-none text-xs">↓</div>
+      </div>
+      <div :class="(($clicks >= 4 && $clicks < 8) || $clicks >= 9) ? 'border-blue-400 bg-blue-950 text-blue-200 glow-blue' : 'border-slate-700 bg-slate-900 text-slate-700'" class="border rounded px-4 py-1 text-xs text-center font-bold transition-all duration-500">Epinephrine / Norepinephrine</div>
+      <div v-show="($clicks >= 4 && $clicks < 8) || $clicks >= 9" class="text-blue-400 text-xs text-center mt-1">↑ HR · ↑ BP · mobilize energy<br/><span class="font-bold">resolves in minutes</span></div>
     </div>
-    <div class="flex flex-col items-center gap-1">
-      <div :class="$clicks >= 3 ? 'text-orange-300' : 'text-slate-700'" class="font-bold text-xs tracking-widest mb-1 transition-all duration-300">HPA AXIS — slow</div>
-      <div :class="$clicks >= 3 ? 'border-orange-600 text-slate-200' : 'border-slate-700 text-slate-700'" class="border rounded px-4 py-1 bg-slate-900 text-xs text-center transition-all duration-300">Hypothalamus</div>
-      <div :class="$clicks >= 3 ? 'text-slate-500' : 'text-slate-800'" class="text-center transition-all duration-300">↓</div>
-      <div :class="$clicks >= 3 ? 'border-orange-600 text-slate-200' : 'border-slate-700 text-slate-700'" class="border rounded px-4 py-1 bg-slate-900 text-xs text-center transition-all duration-300">Pituitary</div>
-      <div :class="$clicks >= 3 ? 'text-slate-500' : 'text-slate-800'" class="text-center transition-all duration-300">↓</div>
-      <div :class="$clicks >= 3 ? 'border-orange-600 text-slate-200' : 'border-slate-700 text-slate-700'" class="border rounded px-4 py-1 bg-slate-900 text-xs text-center transition-all duration-300">Adrenal Cortex</div>
-      <div :class="$clicks >= 3 ? 'text-slate-500' : 'text-slate-800'" class="text-center transition-all duration-300">↓</div>
-      <div :class="$clicks >= 5 ? 'border-orange-400 bg-orange-950 text-orange-200' : 'border-slate-700 bg-slate-900 text-slate-700'" class="border rounded px-4 py-1 text-xs text-center font-bold transition-all duration-500">Cortisol</div>
-      <div v-show="$clicks >= 5" class="text-orange-400 text-xs text-center mt-1">sustained dysregulation<br/><span class="font-bold">accumulates as allostatic load</span></div>
+    <div class="flex flex-col items-center">
+      <div :class="(($clicks >= 5 && $clicks < 8) || $clicks >= 9) ? 'text-orange-300' : 'text-slate-700'" class="font-bold text-xs tracking-widest mb-1 transition-all duration-300">HPA AXIS — slow</div>
+      <div :class="(($clicks >= 5 && $clicks < 8) || $clicks >= 9) ? 'border-orange-600 text-slate-200 glow-orange' : 'border-slate-700 text-slate-700'" class="border rounded px-4 py-1 bg-slate-900 text-xs text-center transition-all duration-300">Hypothalamus</div>
+      <div style="height: 14px; margin: 1px 0" class="relative flex justify-center items-center">
+        <div v-show="($clicks >= 5 && $clicks < 8) || $clicks >= 9" class="connector-orange absolute"></div>
+        <div v-show="!(($clicks >= 5 && $clicks < 8) || $clicks >= 9)" :class="$clicks >= 5 ? 'text-slate-500' : 'text-slate-800'" class="leading-none text-xs">↓</div>
+      </div>
+      <div :class="(($clicks >= 5 && $clicks < 8) || $clicks >= 9) ? 'border-orange-600 text-slate-200 glow-orange' : 'border-slate-700 text-slate-700'" class="border rounded px-4 py-1 bg-slate-900 text-xs text-center transition-all duration-300">Pituitary</div>
+      <div style="height: 14px; margin: 1px 0" class="relative flex justify-center items-center">
+        <div v-show="($clicks >= 5 && $clicks < 8) || $clicks >= 9" class="connector-orange absolute"></div>
+        <div v-show="!(($clicks >= 5 && $clicks < 8) || $clicks >= 9)" :class="$clicks >= 5 ? 'text-slate-500' : 'text-slate-800'" class="leading-none text-xs">↓</div>
+      </div>
+      <div :class="(($clicks >= 5 && $clicks < 8) || $clicks >= 9) ? 'border-orange-600 text-slate-200 glow-orange' : 'border-slate-700 text-slate-700'" class="border rounded px-4 py-1 bg-slate-900 text-xs text-center transition-all duration-300">Adrenal Cortex</div>
+      <div style="height: 14px; margin: 1px 0" class="relative flex justify-center items-center">
+        <div v-show="($clicks >= 6 && $clicks < 8) || $clicks >= 9" class="connector-orange absolute"></div>
+        <div v-show="!(($clicks >= 6 && $clicks < 8) || $clicks >= 9)" :class="$clicks >= 6 ? 'text-slate-500' : 'text-slate-800'" class="leading-none text-xs">↓</div>
+      </div>
+      <div :class="(($clicks >= 6 && $clicks < 8) || $clicks >= 9) ? 'border-orange-400 bg-orange-950 text-orange-200 glow-orange' : 'border-slate-700 bg-slate-900 text-slate-700'" class="border rounded px-4 py-1 text-xs text-center font-bold transition-all duration-500">Cortisol</div>
+      <div v-show="($clicks >= 6 && $clicks < 8) || $clicks >= 9" class="text-orange-400 text-xs text-center mt-1">peaks in 15–30 min<br/><span class="font-bold">effects last hours to days</span></div>
     </div>
   </div>
+  <div v-show="$clicks === 7" class="mt-3 text-xs text-slate-400 italic text-center">stressor resolved — systems winding down...</div>
+  <div v-show="$clicks === 8" class="mt-3 text-xs text-green-400 text-center">✓ Both systems return to baseline — healthy stress response</div>
+  <div v-show="$clicks >= 9 && $clicks < 10" class="mt-3 text-xs text-yellow-300 italic text-center">chronic stress — the stressor keeps returning...</div>
+  <div v-show="$clicks >= 10 && $clicks < 12" class="mt-3 text-xs text-orange-300 italic text-center">stressor resolved — but the body remains activated</div>
+  <div v-show="$clicks >= 11" class="mt-3 text-xs text-red-300 font-bold text-center">allostatic load lives in this sustained arousal — long after the stressor is gone</div>
+  <div v-show="$clicks >= 12" class="mt-2 text-xs text-slate-400 italic text-center max-w-lg mx-auto">Nocturnal physiology captures this window directly — sleep removes acute stressor noise, leaving only the sustained arousal the body can't resolve</div>
 </div>
 
----
-clicks: 3
----
-
-# When Does the HPA Shut Off?
-
-<div class="grid grid-cols-2 gap-10 mt-4" style="font-size: 0.78em">
-  <div class="flex flex-col items-center gap-1">
-    <div class="text-green-300 font-bold text-xs tracking-widest mb-2">HEALTHY SYSTEM</div>
-    <div class="border border-orange-600 rounded px-5 py-1 bg-slate-900 text-slate-300 text-xs text-center">HPA Axis Activates</div>
-    <div class="text-slate-500 text-center">↓</div>
-    <div class="border border-orange-400 rounded px-5 py-1 bg-orange-950 text-orange-200 text-xs text-center font-bold">Cortisol ↑</div>
-    <div v-show="$clicks >= 1" class="flex flex-col items-center gap-1 w-full">
-      <div class="text-slate-500 text-center">↓</div>
-      <div class="border border-green-600 rounded px-5 py-1 bg-green-950 text-green-200 text-xs text-center">⟲  Negative feedback<br/>Cortisol suppresses HPA</div>
-      <div class="text-slate-500 text-center">↓</div>
-      <div class="border-2 border-green-400 rounded px-5 py-2 bg-green-950 text-green-100 text-xs text-center font-bold">Response terminates ✓<br/><span class="font-normal opacity-70">system returns to baseline</span></div>
-    </div>
-  </div>
-  <div class="flex flex-col items-center gap-1">
-    <div class="text-red-300 font-bold text-xs tracking-widest mb-2">ALLOSTATIC LOAD</div>
-    <div class="border border-orange-600 rounded px-5 py-1 bg-slate-900 text-slate-300 text-xs text-center">HPA Axis Activates</div>
-    <div class="text-slate-500 text-center">↓</div>
-    <div class="border border-orange-400 rounded px-5 py-1 bg-orange-950 text-orange-200 text-xs text-center font-bold">Cortisol ↑</div>
-    <div v-show="$clicks >= 2" class="flex flex-col items-center gap-1 w-full">
-      <div class="text-slate-500 text-center">↓</div>
-      <div class="border border-red-600 rounded px-5 py-1 bg-red-950 text-red-200 text-xs text-center">✗  Feedback fails<br/>HPA won't shut off</div>
-      <div class="text-slate-500 text-center">↓</div>
-      <div class="border-2 border-red-400 rounded px-5 py-2 bg-red-950 text-red-100 text-xs text-center font-bold">Persistent hyperarousal<br/><span class="font-normal opacity-70">cardiovascular · metabolic · immune wear</span></div>
-    </div>
-  </div>
-</div>
-<div v-show="$clicks >= 3" class="mt-4 text-xs text-center opacity-60 italic">This failure to terminate — not mere elevation — is the defining pathology of allostatic load.</div>
-
----
-clicks: 4
----
-
-# The Measurement Problem
-
-<div class="flex flex-col gap-3 mt-1" style="font-size: 0.68em; line-height: 1.3">
-  <div class="flex flex-col items-center">
-    <div class="border-2 border-yellow-300 bg-yellow-900 text-yellow-100 rounded px-6 py-1 font-bold tracking-widest">STRESSOR</div>
-    <div class="text-slate-500 leading-none my-0.5">↓</div>
-    <div class="flex items-center gap-3">
-      <div class="border-2 border-yellow-400 bg-yellow-950 text-yellow-100 rounded px-6 py-1">
-        <span class="font-bold">Cognitive Appraisal</span>
-        <span class="opacity-60 ml-2">Lazarus &amp; Folkman</span>
-      </div>
-      <div v-show="$clicks >= 1" class="border border-yellow-500 rounded px-2 py-0.5 bg-slate-900 text-yellow-300 whitespace-nowrap">← wearables measure here</div>
-    </div>
-    <div class="text-slate-500 leading-none my-0.5">↓</div>
-    <div class="flex gap-16">
-      <div class="flex flex-col items-center gap-0.5">
-        <div class="text-blue-300 font-bold tracking-widest">SAM AXIS — fast</div>
-        <div class="border border-blue-600 rounded px-3 py-0.5 bg-slate-900 text-slate-200 text-center">Hypothalamus</div>
-        <div class="text-slate-500 text-center">↓</div>
-        <div class="border border-blue-600 rounded px-3 py-0.5 bg-slate-900 text-slate-200 text-center">Sympathetic NS</div>
-        <div class="text-slate-500 text-center">↓</div>
-        <div class="border border-blue-600 rounded px-3 py-0.5 bg-slate-900 text-slate-200 text-center">Adrenal Medulla</div>
-        <div class="text-slate-500 text-center">↓</div>
-        <div class="border border-blue-400 bg-blue-950 text-blue-200 rounded px-3 py-0.5 text-center font-bold">Epinephrine / Norepinephrine</div>
-        <div class="text-blue-400 text-center">resolves in minutes</div>
-      </div>
-      <div class="flex flex-col items-center gap-0.5">
-        <div class="text-orange-300 font-bold tracking-widest">HPA AXIS — slow</div>
-        <div class="border border-orange-600 rounded px-3 py-0.5 bg-slate-900 text-slate-200 text-center">Hypothalamus</div>
-        <div class="text-slate-500 text-center">↓</div>
-        <div class="border border-orange-600 rounded px-3 py-0.5 bg-slate-900 text-slate-200 text-center">Pituitary</div>
-        <div class="text-slate-500 text-center">↓</div>
-        <div class="border border-orange-600 rounded px-3 py-0.5 bg-slate-900 text-slate-200 text-center">Adrenal Cortex</div>
-        <div class="text-slate-500 text-center">↓</div>
-        <div class="border border-orange-400 bg-orange-950 text-orange-200 rounded px-3 py-0.5 text-center font-bold">Cortisol</div>
-        <div class="text-orange-400 text-center">accumulates as allostatic load</div>
-      </div>
-    </div>
-  </div>
-  <div class="grid grid-cols-2 gap-5">
-    <div v-show="$clicks >= 2" class="border border-yellow-700 rounded-lg p-3 bg-yellow-950 bg-opacity-30">
-      <div class="text-yellow-400 font-bold tracking-widest mb-1">WHERE WEARABLE RESEARCH LIVES</div>
-      <div>Detects <strong>acute autonomic arousal</strong> at the appraisal phase. The signal is real but <strong>state-level</strong> — transient, situation-bound, resolving in minutes.</div>
-      <div class="mt-2 opacity-50 italic">WESAD · Trier Social Stress Test · ML stress classifiers</div>
-    </div>
-    <div v-show="$clicks >= 3" class="border border-orange-600 rounded-lg p-3 bg-orange-950 bg-opacity-30">
-      <div class="text-orange-400 font-bold tracking-widest mb-1">WHERE THE MORTALITY SIGNAL LIVES</div>
-      <div>Allostatic load lives <strong>downstream of appraisal entirely</strong> — in the slow HPA axis. It is <strong>trait-level</strong>: cortisol dysregulation accumulated over months and years.</div>
-      <div class="mt-2 opacity-50 italic">predicts 7-year mortality · cognitive decline · depression · anhedonia</div>
-    </div>
-  </div>
-  <div v-show="$clicks >= 4" class="text-center italic opacity-70 border-t border-slate-700 pt-2">The field has built increasingly sophisticated tools to measure the wrong thing. <strong>No wearable study has yet targeted allostatic load directly.</strong></div>
-</div>
 
 ---
 
@@ -264,12 +203,7 @@ Under chronic or repeated activation — or when the response fails to terminate
 
 <v-click>
 
-Two features of the construct that matter for everything that follows:
-
-| | |
-|---|---|
-| **Trait-like** | It is the integral of stress exposure over months and years, not a momentary state. Its predictive value lies in that stability. |
-| **Dynamical** | The defining pathology is an *inability to terminate the stress response* — not the mere elevation of any single marker. |
+AL is **trait-like**: it is the integral of stress exposure over months and years, not a momentary state. Its predictive value lies precisely in that stability.
 
 </v-click>
 
@@ -525,21 +459,16 @@ From the fitted model, two participant-level shape statistics:
 
 - Trait-like stability: ICC > 0.5 over 8-week window
 - Association with known correlates: prior trauma, mental health diagnoses, chronic anxiety
-- Prediction: shape measures (AL_dwell, AL_vuln) should carry trait-like mental-health signal
 
 </div>
 <div>
 
 **Clinical validation**
 
-- Correspondence with canonical MacArthur clinical biomarker composite from LEMURS bloodwork
-- Expectation is *partial*: wearable indexes autonomic axis, not metabolic/inflammatory axis
-- Strong correlation with metabolic markers would *falsify* the autonomic-axis framing
+- Correspondence with the MacArthur clinical biomarker composite — with the expectation that a wearable indexing only the autonomic axis will show partial, not full, correspondence
 
 </div>
 </div>
-
-**Differential validation hypothesis:** AL_z should track clinical biomarker magnitude; AL_dwell and AL_vuln should track trait-like mental health indicators. A double dissociation would establish the two measures are non-redundant.
 
 ---
 layout: center
