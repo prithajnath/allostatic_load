@@ -317,7 +317,7 @@ class: text-center
 
 # 03 — Methods
 
-LEMURS · Six Features · AL_z · Hierarchical Bayesian HMM
+LEMURS · Six Features · $AL_z$ · Hierarchical Bayesian HMM
 
 ---
 
@@ -393,7 +393,7 @@ Time to reach lowest resting HR during the night. Delayed → body struggling to
 
 ---
 
-# Model 1: Magnitude — AL_z
+# Model 1: Magnitude — $AL_z$
 
 A direct analog of the MacArthur summed-quartile score, replacing quartile dichotomization with a continuous z-score.
 
@@ -421,7 +421,7 @@ $$\text{AL}_z(i,t) = \frac{1}{6}\sum_{k=1}^{6} z_{i,t}^{(k)}$$
 
 # Model 2: Shape — Hierarchical Bayesian HMM
 
-<div class="text-sm opacity-60 -mt-2 mb-1">Recovers dynamical structure that AL_z averages over.</div>
+<div class="text-sm opacity-60 -mt-2 mb-1">Recovers dynamical structure that AL<sub>z</sub> averages over.</div>
 
 <v-click>
 
@@ -439,8 +439,8 @@ From the fitted model, two participant-level shape statistics:
 
 | Statistic | Definition | Captures |
 | --- | --- | --- |
-| **AL_dwell** | Expected consecutive nights in dysregulated state: $1/(1-A_{22}^{(i)})$ | *Stability* of dysregulation |
-| **AL_vuln** | Probability of transitioning regulated → dysregulated: $A_{12}^{(i)}$ | *Vulnerability* to dysregulation |
+| **$AL_{dwell}$** | Expected consecutive nights in dysregulated state: $1/(1-A_{22}^{(i)})$ | *Stability* of dysregulation |
+| **$AL_{vuln}$** | Probability of transitioning regulated → dysregulated: $A_{12}^{(i)}$ | *Vulnerability* to dysregulation |
 
 </v-click>
 
@@ -465,12 +465,12 @@ Complementary measures · Trait stability · Psychometric · Clinical
 <div class="grid grid-cols-2 gap-8 mt-4 items-center">
 <div>
 
-The HMM shape measures and AL_z capture largely non-overlapping information:
+The HMM shape measures and $AL_z$ capture largely non-overlapping information:
 
-- AL_dwell vs AL_z: **r = 0.26**
-- AL_vuln vs AL_z: **r = 0.24**
+- $AL_{dwell}$ vs $AL_z$: **r = 0.26**
+- $AL_{vuln}$ vs $AL_z$: **r = 0.24**
 
-AL_z asks *how far* a participant deviates from baseline; AL_vuln and AL_dwell ask *how* that deviation is distributed in time. A participant who is chronically dysregulated and one who is intermittently so can share an identical mean AL_z.
+$AL_z$ asks *how far* a participant deviates from baseline; $AL_{vuln}$ and $AL_{dwell}$ ask *how* that deviation is distributed in time. A participant who is chronically dysregulated and one who is intermittently so can share an identical mean $AL_z$.
 
 <v-click>
 
@@ -486,7 +486,7 @@ AL_z asks *how far* a participant deviates from baseline; AL_vuln and AL_dwell a
 
 ---
 
-# Trait-like Stability of AL_z
+# Trait-like Stability of $AL_z$
 
 <div class="grid grid-cols-2 gap-8 mt-4">
 <div>
@@ -494,7 +494,7 @@ AL_z asks *how far* a participant deviates from baseline; AL_vuln and AL_dwell a
 **Single-night reliability:**
 $$\text{ICC}(1,1) = 0.431 \quad [0.399, 0.462]$$
 
-Between-person variance accounts for 43% of total variance in nightly AL_z.
+Between-person variance accounts for 43% of total variance in nightly $AL_z$.
 
 A single night is not a trait — but the participant-level mean is.
 
@@ -513,7 +513,7 @@ The trait-like threshold (> 0.5) is exceeded for any participant with at least 2
 
 <v-click>
 
-> The participant-level AL_z score behaves as a trait, with median reliability 0.977, even though any single night does not.
+> The participant-level $AL_z$ score behaves as a trait, with median reliability 0.977, even though any single night does not.
 
 </v-click>
 
@@ -526,12 +526,12 @@ The trait-like threshold (> 0.5) is exceeded for any participant with at least 2
 <div class="grid grid-cols-2 gap-6 mt-3 text-sm">
 <div>
 
-**Long yellow streaks** — participants stuck in the dysregulated state for weeks. Captured by high **AL_dwell** (stable dysregulation).
+**Long yellow streaks** — participants stuck in the dysregulated state for weeks. Captured by high **$AL_{dwell}$** (stable dysregulation).
 
 </div>
 <div>
 
-**Fine alternating striping** — rapid regulated↔dysregulated transitions with low dwell time. Captured by high **AL_vuln** (labile dysregulation).
+**Fine alternating striping** — rapid regulated↔dysregulated transitions with low dwell time. Captured by high **$AL_{vuln}$** (labile dysregulation).
 
 </div>
 </div>
@@ -670,7 +670,7 @@ The cardiovascular signal in this data doesn't come from any single predictor. I
 <div class="grid grid-cols-2 gap-8 mt-3 items-start">
 <div>
 
-**AL_dwell^always × AL_z** — participants who *never recovered* from dysregulation during the study window AND have high allostatic load magnitude show amplified cardiovascular risk across four outcomes simultaneously:
+**$AL_{dwell}^{always}$ × $AL_z$** — participants who *never recovered* from dysregulation during the study window AND have high allostatic load magnitude show amplified cardiovascular risk across four outcomes simultaneously:
 
 <table class="w-full text-xs border-collapse mt-3">
   <thead>
@@ -804,31 +804,19 @@ What we showed · Scope · Threats · What's next
 
 ---
 
-# Conclusions — The MacArthur Composite
-
-No wearable measure was significantly associated with the MacArthur-style clinical composite constructed from the LEMURS bloodwork. The only reliable predictor across all models was BMI.
-
-<v-click>
-
-This null result was **anticipated and pre-specified**, not a post-hoc rationalization. The LEMURS bloodwork composite is built from secondary cardiometabolic outcomes — blood pressure, lipids, glucose — and omits the neuroendocrine and sympathetic primary mediators (cortisol, DHEA-S, catecholamines) closest to the autonomic axis the wearable indexes. A measure of parasympathetic sleep dynamics would not be expected to recover a composite that does not contain its nearest biomarker analogues.
-
-</v-click>
-
----
-
 # Conclusions — Magnitude
 
-**AL_z is the most robust measure to emerge from this work.** A simple unweighted average of six z-scored sleep biomarkers — derivable from a consumer ring worn during sleep — survived Benjamini–Hochberg correction in its association with depression, and showed consistent signal in renal and liver clinical markers.
+**$AL_z$ is the most robust measure to emerge from this work.** A simple unweighted average of six z-scored sleep biomarkers — derivable from a consumer ring worn during sleep — survived Benjamini–Hochberg correction in its association with depression, and showed consistent signal in renal and liver clinical markers.
 
 <v-click>
 
-**What this means for the construct — and why Carbone predicted it.** Carbone (2021) applied latent class analysis to a national sample and identified four classes of biological dysregulation. The **parasympathetic class** — defined by elevated RMSSD, HFHRV, and LFHRV, precisely the signals a wearable captures during sleep — was associated with **71% greater odds** of meeting CES-D depression criteria (ARR=1.71, 95% CI: 1.04–2.82). The SAM pathway class showed no such association. Critically, Carbone's cumulative multisystem AL score was *not* significantly associated with depression treatment (p=0.50). Our autonomic-only AL_z is. Isolating the parasympathetic facet doesn't degrade the signal — for mental health outcomes, it may sharpen it.
+**What this means for the construct — and why Carbone predicted it.** Carbone (2021) applied latent class analysis to a national sample and identified four classes of biological dysregulation. The **parasympathetic class** — defined by elevated RMSSD, HFHRV, and LFHRV, precisely the signals a wearable captures during sleep — was associated with **71% greater odds** of meeting CES-D depression criteria. The SAM pathway class showed no such association. Critically, Carbone's cumulative multisystem AL score was *not* significantly associated with depression treatment. Our autonomic-only $AL_z$ is. Isolating the parasympathetic facet doesn't degrade the signal — for mental health outcomes, it may sharpen it.
 
 </v-click>
 
 <v-click>
 
-**What this means for practice.** The MacArthur operationalization requires an invasive clinical panel. AL_z requires a consumer ring worn during sleep. That a measure this accessible and this simple can predict depression outcomes — one of the leading causes of disability in college students — opens a path toward scalable, continuous, non-invasive risk stratification in populations where clinical bloodwork is impractical.
+**What this means for practice.** The MacArthur operationalization requires an invasive clinical panel. $AL_z$ requires a consumer ring worn during sleep. That a measure this accessible and this simple can predict depression outcomes — one of the leading causes of disability in college students — opens a path toward scalable, continuous, non-invasive risk stratification in populations where clinical bloodwork is impractical.
 
 </v-click>
 
@@ -836,23 +824,17 @@ This null result was **anticipated and pre-specified**, not a post-hoc rationali
 
 # Conclusions — Shape
 
-The HMM-derived shape measures — **AL_dwell** (how long a person stays in a dysregulated state) and **AL_vuln** (how readily they enter one) — capture a facet of allostatic load that AL_z cannot: the temporal topology of dysregulation.
+The HMM-derived shape measures — **$AL_{dwell}$** (how long a person stays in a dysregulated state) and **$AL_{vuln}$** (how readily they enter one) — capture a facet of allostatic load that $AL_z$ cannot: the temporal topology of dysregulation.
 
 <v-click>
 
-**What the data showed.** AL_dwell^finite showed a positive association with diastolic blood pressure (β=0.96, p=0.015) — directionally consistent with the autonomic → cardiovascular pathway: longer dwell in a dysregulated state places sustained demand on the cardiovascular system. The AL_dwell^always × AL_z interaction amplified this picture: participants who never recovered from dysregulation AND had high allostatic load magnitude showed positive effects across all four cardiovascular outcomes — diastolic BP (β=2.54), systolic BP (β=3.98), hypertension (OR=2.48), and hypertension event count (β=0.24). AL_vuln also associated with systolic blood pressure, but in the negative direction (β=−1.74, p=0.003), which is counterintuitive and should be interpreted cautiously.
+**What the data showed.** $AL_{dwell}^{finite}$ predicted diastolic blood pressure (β=0.96, p=0.015), consistent with the autonomic → cardiovascular pathway. The $AL_{dwell}^{always}$ × $AL_z$ interaction showed positive effects across all four cardiovascular outcomes: diastolic BP (β=2.54), systolic BP (β=3.98), hypertension (OR=2.48), hypertension events (β=0.24). $AL_{vuln}$ also predicted systolic BP, but counterintuitively in the negative direction (β=−1.74, p=0.003).
 
 </v-click>
 
 <v-click>
 
-**The limitation.** None of these associations survived Benjamini–Hochberg correction within the shape predictor family. The signal is present but not robust enough — in this sample, at this sample size — to be declared confirmatory. These results should be treated as hypothesis-generating rather than conclusive.
-
-</v-click>
-
-<v-click>
-
-**What is needed.** Larger cohorts, longer observation windows, and ideally populations with greater cardiovascular risk burden — older adults, clinical populations — where the autonomic → cardiovascular pathway has more room to express itself. The shape measures are theoretically well-motivated; the evidence base simply needs to grow.
+**The limitation.** None of these associations survived Benjamini–Hochberg correction — the signal is present but, at this sample size, hypothesis-generating rather than confirmatory.
 
 </v-click>
 
@@ -864,13 +846,13 @@ Renal and hepatic associations are present in the data but uninformative for con
 
 <v-click>
 
-**BUN — survived correction, wrong direction.** AL_z → BUN (β=−0.50, p=0.002) is the only association to survive BH correction, but higher AL_z predicts *lower* BUN. BUN is governed by dietary protein intake, hydration, and alcohol use — none recorded at the blood draw. Almost certainly a confounder.
+**BUN — survived correction, wrong direction.** $AL_z$ → BUN (β=−0.50, p=0.002) is the only association to survive BH correction, but higher $AL_z$ predicts *lower* BUN. BUN is governed by dietary protein intake, hydration, and alcohol use — none recorded at the blood draw. Almost certainly a confounder.
 
 </v-click>
 
 <v-click>
 
-**GGT and Albumin — raw signal, did not survive correction.** AL_z showed raw associations with albumin (p=0.017) and GGT_z (p=0.026). Neither survived correction. GGT is timescale-ambiguous — binge alcohol elevates it within hours, so a single draw cannot separate the chronic pathway from the acute one.
+**GGT and Albumin — raw signal, did not survive correction.** $AL_z$ showed raw associations with albumin (p=0.017) and $GGT_z$ (p=0.026). Neither survived correction. GGT is timescale-ambiguous — binge alcohol elevates it within hours, so a single draw cannot separate the chronic pathway from the acute one.
 
 </v-click>
 
