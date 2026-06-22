@@ -421,15 +421,13 @@ $$\text{AL}_z(i,t) = \frac{1}{6}\sum_{k=1}^{6} z_{i,t}^{(k)}$$
 
 # Model 2: Shape — Hierarchical Bayesian HMM
 
-Recovers dynamical structure that AL_z averages over.
+<div class="text-sm opacity-60 -mt-2 mb-1">Recovers dynamical structure that AL_z averages over.</div>
 
 <v-click>
 
-Each participant's nightly trajectory modeled as emissions from a **two-state HMM**:
-- State 1: regulated
-- State 2: dysregulated
+Each participant's nightly trajectory modeled as emissions from a **two-state HMM**: State 1 (regulated), State 2 (dysregulated).
 
-Emission distributions: $\mathbf{x}_{i,t} \mid S_{i,t} = s \sim \mathcal{N}(\mu_s^{(i)}, \Sigma_s)$
+$$\mathbf{x}_{i,t} \mid S_{i,t} = s \sim \mathcal{N}(\mu_s^{(i)}, \Sigma_s)$$
 
 State-specific means **partially pooled** across participants — borrow strength from cohort while preserving person-specific deviations.
 
@@ -446,29 +444,10 @@ From the fitted model, two participant-level shape statistics:
 
 </v-click>
 
----
-
-# Validation Framework
-
-**Two orthogonal frameworks** — neither alone is sufficient:
-
-<div class="grid grid-cols-2 gap-6 mt-4 text-sm">
-<div>
-
-**Psychometric validation**
-
-- Trait-like stability: ICC > 0.5 over 8-week window
-- Association with known correlates: prior trauma, mental health diagnoses, chronic anxiety
-
-</div>
-<div>
-
-**Clinical validation**
-
-- Correspondence with the MacArthur clinical biomarker composite — with the expectation that a wearable indexing only the autonomic axis will show partial, not full, correspondence
-
-</div>
-</div>
+<style>
+.slidev-layout p { margin-top: 0.4em !important; margin-bottom: 0.4em !important; }
+.slidev-layout .katex-display { margin: 0.4em 0 !important; }
+</style>
 
 ---
 layout: center
@@ -488,7 +467,7 @@ Complementary measures · Trait stability · Psychometric · Clinical
 
 The HMM shape measures and AL_z capture largely non-overlapping information:
 
-- AL_dwell vs AL_z: **r = 0.26** (cycling subgroup)
+- AL_dwell vs AL_z: **r = 0.26**
 - AL_vuln vs AL_z: **r = 0.24**
 
 AL_z asks *how far* a participant deviates from baseline; AL_vuln and AL_dwell ask *how* that deviation is distributed in time. A participant who is chronically dysregulated and one who is intermittently so can share an identical mean AL_z.
@@ -583,12 +562,12 @@ clicks: 3
       <td class="text-center py-1 pr-4">0.013</td>
       <td class="text-center py-1">0.186</td>
     </tr>
-    <tr :class="$clicks < 2 ? ($clicks === 0 ? 'opacity-40' : 'opacity-90') : 'bg-orange-950 border-orange-700'" class="border-b transition-all duration-500">
-      <td class="py-1 pr-4" :class="$clicks >= 2 ? 'font-bold text-orange-200' : ''">AL<sub>z</sub></td>
-      <td class="py-1 pr-4" :class="$clicks >= 2 ? 'font-bold text-orange-200' : ''">Depression</td>
-      <td class="text-center py-1 pr-4" :class="$clicks >= 2 ? 'font-bold text-orange-200' : ''">1.50 (1.20–1.86)</td>
-      <td class="text-center py-1 pr-4" :class="$clicks >= 2 ? 'font-bold text-orange-200' : ''">&lt;0.001</td>
-      <td class="text-center py-1" :class="$clicks >= 2 ? 'font-bold text-orange-200' : ''">0.018 ✓</td>
+    <tr :class="$clicks < 2 ? ($clicks === 0 ? 'opacity-40' : 'opacity-90') : ''" :style="$clicks >= 2 ? 'background-color: #DC143C; border-color: #DC143C;' : ''" class="border-b transition-all duration-500">
+      <td class="py-1 pr-4" :style="$clicks >= 2 ? 'color: white; font-weight: bold' : ''">AL<sub>z</sub></td>
+      <td class="py-1 pr-4" :style="$clicks >= 2 ? 'color: white; font-weight: bold' : ''">Depression</td>
+      <td class="text-center py-1 pr-4" :style="$clicks >= 2 ? 'color: white; font-weight: bold' : ''">1.50 (1.20–1.86)</td>
+      <td class="text-center py-1 pr-4" :style="$clicks >= 2 ? 'color: white; font-weight: bold' : ''">&lt;0.001</td>
+      <td class="text-center py-1" :style="$clicks >= 2 ? 'color: white; font-weight: bold' : ''">0.018 ✓</td>
     </tr>
     <tr :class="$clicks === 0 ? 'opacity-40' : $clicks === 1 ? 'opacity-90' : 'opacity-15'" class="border-b border-slate-800 transition-all duration-500">
       <td class="py-1 pr-4">AL<sub>vuln</sub></td>
@@ -634,7 +613,7 @@ clicks: 3
     </tr>
   </tbody>
 </table>
-<div v-show="$clicks >= 3" class="mt-3 text-xs border-l-2 border-orange-600 pl-3 opacity-80">Only AL<sub>z</sub> → Depression survived Benjamini–Hochberg correction. The magnitude measure carries the most robust psychometric signal.</div>
+<div v-show="$clicks >= 3" class="mt-3 text-xs pl-3 opacity-80" style="border-left: 2px solid #DC143C;">Only AL<sub>z</sub> → Depression survived Benjamini–Hochberg correction. The magnitude measure carries the most robust psychometric signal.</div>
 
 ---
 clicks: 7
@@ -654,7 +633,6 @@ clicks: 7
     <div :class="$clicks >= 2 ? 'text-amber-300' : 'text-slate-600'" class="font-bold tracking-widest text-xs mb-2 transition-all duration-500">RENAL</div>
     <div v-show="$clicks >= 2" class="text-slate-200">
       <div>AL<sub>z</sub> → BUN &nbsp;<span class="text-amber-300 font-bold">p=0.002</span></div>
-      <div class="text-amber-400 text-xs mt-1">⭐ survives BH correction</div>
       <div class="text-slate-500 text-xs mt-1 italic">wrong direction — likely confounder</div>
     </div>
   </div>
@@ -791,22 +769,22 @@ clicks: 2
       <td :class="$clicks >= 1 ? 'opacity-20' : ''" class="text-center py-0.5 pr-3 text-slate-600 transition-all duration-500">—</td>
       <td :class="$clicks >= 1 ? 'opacity-20' : ''" class="text-center py-0.5 text-slate-600 transition-all duration-500">—</td>
     </tr>
-    <tr class="border-b border-slate-800 bg-slate-800 bg-opacity-30">
+    <tr :class="$clicks >= 1 ? 'opacity-20' : ''" class="border-b border-slate-800 bg-slate-800 bg-opacity-30 transition-all duration-500">
       <td class="py-px pr-3 text-slate-400 italic" colspan="5">Liver</td>
     </tr>
-    <tr class="border-b border-slate-800">
+    <tr :class="$clicks >= 1 ? 'opacity-20' : ''" class="border-b border-slate-800 transition-all duration-500">
       <td class="py-0.5 pr-3 text-slate-300">Albumin (g/dL)</td>
       <td class="text-center py-0.5 pr-3 text-orange-200">−0.03 <span class="text-orange-400">p=0.017</span></td>
-      <td :class="$clicks >= 1 ? 'opacity-20' : ''" class="text-center py-0.5 pr-3 text-slate-600 transition-all duration-500">—</td>
-      <td :class="$clicks >= 1 ? 'opacity-20' : ''" class="text-center py-0.5 pr-3 text-slate-600 transition-all duration-500">—</td>
-      <td :class="$clicks >= 1 ? 'opacity-20' : ''" class="text-center py-0.5 text-slate-200 transition-all duration-500">−0.03 <span class="text-orange-400">p=0.029</span></td>
+      <td class="text-center py-0.5 pr-3 text-slate-600">—</td>
+      <td class="text-center py-0.5 pr-3 text-slate-600">—</td>
+      <td class="text-center py-0.5 text-slate-200">−0.03 <span class="text-orange-400">p=0.029</span></td>
     </tr>
-    <tr class="border-b border-slate-800">
+    <tr :class="$clicks >= 1 ? 'opacity-20' : ''" class="border-b border-slate-800 transition-all duration-500">
       <td class="py-0.5 pr-3 text-slate-300">GGT<sub>z</sub> (norm.)</td>
       <td class="text-center py-0.5 pr-3 text-orange-200">0.03 <span class="text-orange-400">p=0.026</span></td>
-      <td :class="$clicks >= 1 ? 'opacity-20' : ''" class="text-center py-0.5 pr-3 text-slate-600 transition-all duration-500">—</td>
-      <td :class="$clicks >= 1 ? 'opacity-20' : ''" class="text-center py-0.5 pr-3 text-slate-200 transition-all duration-500">−0.07 <span class="text-orange-400">p=0.036</span></td>
-      <td :class="$clicks >= 1 ? 'opacity-20' : ''" class="text-center py-0.5 text-slate-600 transition-all duration-500">—</td>
+      <td class="text-center py-0.5 pr-3 text-slate-600">—</td>
+      <td class="text-center py-0.5 pr-3 text-slate-200">−0.07 <span class="text-orange-400">p=0.036</span></td>
+      <td class="text-center py-0.5 text-slate-600">—</td>
     </tr>
     <tr class="border-b border-slate-800 opacity-40">
       <td class="py-px pr-3 text-slate-500 italic" colspan="5">Hematology · Immune · Lipids — no significant associations</td>
@@ -862,13 +840,13 @@ The HMM-derived shape measures — **AL_dwell** (how long a person stays in a dy
 
 <v-click>
 
-**What the data showed.** AL_dwell^finite was associated with elevated diastolic blood pressure (β=0.96, p=0.015) and AL_vuln with systolic blood pressure (β=−1.74, p=0.003). These are directionally consistent with the known autonomic → cardiovascular pathway: sustained or recurrent parasympathetic withdrawal places chronic demand on the cardiovascular system, driving upward pressure on resting blood pressure. The biological story is coherent.
+**What the data showed.** AL_dwell^finite showed a positive association with diastolic blood pressure (β=0.96, p=0.015) — directionally consistent with the autonomic → cardiovascular pathway: longer dwell in a dysregulated state places sustained demand on the cardiovascular system. The AL_dwell^always × AL_z interaction amplified this picture: participants who never recovered from dysregulation AND had high allostatic load magnitude showed positive effects across all four cardiovascular outcomes — diastolic BP (β=2.54), systolic BP (β=3.98), hypertension (OR=2.48), and hypertension event count (β=0.24). AL_vuln also associated with systolic blood pressure, but in the negative direction (β=−1.74, p=0.003), which is counterintuitive and should be interpreted cautiously.
 
 </v-click>
 
 <v-click>
 
-**The limitation.** Neither association survived Benjamini–Hochberg correction within the shape predictor family. The signal is present but not robust enough — in this sample, at this sample size — to be declared confirmatory. These results should be treated as hypothesis-generating rather than conclusive.
+**The limitation.** None of these associations survived Benjamini–Hochberg correction within the shape predictor family. The signal is present but not robust enough — in this sample, at this sample size — to be declared confirmatory. These results should be treated as hypothesis-generating rather than conclusive.
 
 </v-click>
 
